@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Twilio
+Bundle-SymbolicName: za.co.ntier.twilio
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.adempiere.base;bundle-version="12.0.0"
+Service-Component: OSGI-INF/za.co.ntier.twilio.models.TwilioModelFactory.xml,
+ OSGI-INF/za.co.ntier.twilio.process.TwilioProcessFactory.xml
+Automatic-Module-Name: za.co.ntier.twilio
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Bundle-RequiredExecutionEnvironment: JavaSE-17
