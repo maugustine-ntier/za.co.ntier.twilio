@@ -16,8 +16,8 @@ public class TwilioModelFactory implements IModelFactory {
 
 	@Override
 	public Class<?> getClass(String tableName) {
-		if (tableName.equals(I_C_Invoice.Table_Name)) {
-			return MInvoice_New.class;
+		if (tableName.equals(X_TW_Message.Table_Name)) {
+			return X_TW_Message.class;
 		}
 		
 			
@@ -26,8 +26,8 @@ public class TwilioModelFactory implements IModelFactory {
 
 	@Override
 	public PO getPO(String tableName, int Record_ID, String trxName) {
-		if (tableName.equals(I_C_Invoice.Table_Name)) {
-			return new MInvoice_New(Env.getCtx(),Record_ID,trxName);
+		if (tableName.equals(X_TW_Message.Table_Name)) {
+			return new X_TW_Message(Env.getCtx(),Record_ID,trxName);
 		}
 		
 		
@@ -36,8 +36,8 @@ public class TwilioModelFactory implements IModelFactory {
 
 	@Override
 	public PO getPO(String tableName, ResultSet rs, String trxName) {
-		if (tableName.equals(I_C_Invoice.Table_Name)) {
-			return new MInvoice_New(Env.getCtx(),rs,trxName);
+		if (tableName.equals(X_TW_Message.Table_Name)) {
+			return new X_TW_Message(Env.getCtx(),rs,trxName);
 		}
 		
 			

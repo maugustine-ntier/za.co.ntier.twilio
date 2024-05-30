@@ -9,7 +9,7 @@ public class TwilioProcessFactory extends AnnotationBasedProcessFactory {
 
 	@Override
 	protected String[] getPackages() {
-		return new String[] {"za.ntier.twilio.process"};
+		return new String[] {"za.co.ntier.twilio.process"};
 	}
 
 }
