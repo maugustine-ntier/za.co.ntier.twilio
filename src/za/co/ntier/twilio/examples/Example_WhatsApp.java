@@ -4,8 +4,8 @@ import com.twilio.rest.api.v2010.account.Message;
 
 public class Example_WhatsApp {
   // Find your Account Sid and Token at twilio.com/console
-  public static final String ACCOUNT_SID = "AC3594e4f0ebf53b71cd4b6747ade0418e";
-  public static final String AUTH_TOKEN = "6fe43a256c6ed85cb53cdc6dc7017c5b";
+  public static final String ACCOUNT_SID = "";
+  public static final String AUTH_TOKEN = "";
 
   public static void main(String[] args) {
     Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
