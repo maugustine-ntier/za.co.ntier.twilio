@@ -1,5 +1,6 @@
 package za.co.ntier.twilio.process;
 
+import org.compiere.model.MSysConfig;
 import org.compiere.process.SvrProcess;
 
 import com.twilio.Twilio;
@@ -10,8 +11,8 @@ import za.co.ntier.twilio.models.X_TW_Message;
 
 @org.adempiere.base.annotation.Process
 public class SendTwilioMessage extends SvrProcess {
-	public static final String ACCOUNT_SID = "AC3594e4f0ebf53b71cd4b6747ade0418e";//System.getenv("TWILIO_ACCOUNT_SID");
-	public static final String AUTH_TOKEN = "1775159b2f070d11b46b3f0181d763b9"; //System.getenv("TWILIO_AUTH_TOKEN");
+	public String ACCOUNT_SID = null;
+	public String AUTH_TOKEN = null; //System.getenv("TWILIO_AUTH_TOKEN");
 	@Override
 	protected void prepare() {
 		// TODO Auto-generated method stub
@@ -20,12 +21,14 @@ public class SendTwilioMessage extends SvrProcess {
 
 	@Override
 	protected String doIt() throws Exception {
+		ACCOUNT_SID = MSysConfig.getValue("TWILIO_ACCOUNT_SID", getAD_Client_ID());
+		AUTH_TOKEN  = MSysConfig.getValue("TWILIO_AUTH_TOKEN", getAD_Client_ID());
 		int record_ID = getRecord_ID();
 		X_TW_Message x_TW_Message = new X_TW_Message(getCtx(), record_ID, get_TrxName());
 		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 		if (x_TW_Message.getTwilio_Message_Type().equals(X_TW_Message.TWILIO_MESSAGE_TYPE_SMS)) {			
 	        Message message = Message.creator(
-	                new com.twilio.type.PhoneNumber("+27844627361"),
+	                new com.twilio.type.PhoneNumber(x_TW_Message.getPhone()),
 	                new com.twilio.type.PhoneNumber("+14012082693"),
 	                x_TW_Message.getMessage())
 	            .create();
@@ -33,7 +36,7 @@ public class SendTwilioMessage extends SvrProcess {
 	        System.out.println(message.getSid());
 		} else {  // Assume Whatsapp
 			    Message message = Message.creator(
-			      new com.twilio.type.PhoneNumber("whatsapp:+27844627361"),
+			      new com.twilio.type.PhoneNumber("whatsapp:" + x_TW_Message.getPhone()),
 			      new com.twilio.type.PhoneNumber("whatsapp:+14155238886"),
 			      x_TW_Message.getMessage())
 

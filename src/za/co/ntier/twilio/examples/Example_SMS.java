@@ -8,7 +8,7 @@ public class Example_SMS {
     // Find your Account SID and Auth Token at twilio.com/console
     // and set the environment variables. See http://twil.io/secure
     public static final String ACCOUNT_SID = "AC3594e4f0ebf53b71cd4b6747ade0418e";//System.getenv("TWILIO_ACCOUNT_SID");
-    public static final String AUTH_TOKEN = "1775159b2f070d11b46b3f0181d763b9"; //System.getenv("TWILIO_AUTH_TOKEN");
+    public static final String AUTH_TOKEN = "6fe43a256c6ed85cb53cdc6dc7017c5b"; //System.getenv("TWILIO_AUTH_TOKEN");
 
     public static void main(String[] args) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);

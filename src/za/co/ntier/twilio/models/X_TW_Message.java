@@ -31,7 +31,7 @@ public class X_TW_Message extends PO implements I_TW_Message, I_Persistent
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20240530L;
+	private static final long serialVersionUID = 20240602L;
 
     /** Standard Constructor */
     public X_TW_Message (Properties ctx, int TW_Message_ID, String trxName)
@@ -139,6 +139,22 @@ public class X_TW_Message extends PO implements I_TW_Message, I_Persistent
 	public String getName()
 	{
 		return (String)get_Value(COLUMNNAME_Name);
+	}
+
+	/** Set Phone.
+		@param Phone Identifies a telephone number
+	*/
+	public void setPhone (String Phone)
+	{
+		set_ValueNoCheck (COLUMNNAME_Phone, Phone);
+	}
+
+	/** Get Phone.
+		@return Identifies a telephone number
+	  */
+	public String getPhone()
+	{
+		return (String)get_Value(COLUMNNAME_Phone);
 	}
 
 	/** Set Send Message.

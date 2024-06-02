@@ -119,6 +119,19 @@ public interface I_TW_Message
 	  */
 	public String getName();
 
+    /** Column name Phone */
+    public static final String COLUMNNAME_Phone = "Phone";
+
+	/** Set Phone.
+	  * Identifies a telephone number
+	  */
+	public void setPhone (String Phone);
+
+	/** Get Phone.
+	  * Identifies a telephone number
+	  */
+	public String getPhone();
+
     /** Column name Send_Message */
     public static final String COLUMNNAME_Send_Message = "Send_Message";
 
