@@ -3,7 +3,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Twilio
 Bundle-SymbolicName: za.co.ntier.twilio
 Bundle-Version: 1.0.0.qualifier
-Export-Package: za.co.ntier.utils
+Export-Package: za.co.ntier.twilio.models,
+ za.co.ntier.twilio.process,
+ za.co.ntier.utils
 Require-Bundle: org.adempiere.base;bundle-version="12.0.0"
 Automatic-Module-Name: za.co.ntier.twilio
 Bundle-ActivationPolicy: lazy
