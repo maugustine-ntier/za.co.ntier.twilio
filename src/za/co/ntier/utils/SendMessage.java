@@ -1,5 +1,6 @@
 package za.co.ntier.utils;
 
+import java.util.Arrays;
 import java.util.Properties;
 
 import org.compiere.model.MSysConfig;
@@ -13,7 +14,8 @@ public class SendMessage {
 
 
 
-	public static String send(Properties ctx, int ad_Client_ID, String type, String To_Number, String ticketNo,String respPerson,String dateTimeUpdated,String msgToSend,
+	public static String send(Properties ctx, int ad_Client_ID, String type, String To_Number, String ticketNo,String respPerson,String priority,String updatedBy,
+			String dateTimeUpdated,String summaryMsg,
 			String latestResp) throws Exception {
 		String ACCOUNT_SID = MSysConfig.getValue("TWILIO_ACCOUNT_SID", ad_Client_ID);
 		String AUTH_TOKEN = MSysConfig.getValue("TWILIO_AUTH_TOKEN", ad_Client_ID);
@@ -22,24 +24,46 @@ public class SendMessage {
 			Message message = Message.creator(
 					new com.twilio.type.PhoneNumber(To_Number),
 					new com.twilio.type.PhoneNumber("+14012082693"), 
-					msgToSend).create();
+					summaryMsg).create();
 
 			System.out.println(message.getSid());
 		} else { // Assume Whatsapp
-			String ContentVariables="{\"1\": \"" + ticketNo + "\",\"2\": \"" + msgToSend + "\"}";
+			String summaryMsg1 = summaryMsg.trim();			
+			String summaryMsg2 = "";
+			if (summaryMsg != null) {
+				String[] strArray = summaryMsg.lines().toArray(String[]::new);
+				if (strArray != null && strArray.length > 0) {
+					summaryMsg1 = strArray[0];
+					if (strArray.length > 1) {
+						summaryMsg2 = String.join(", ", Arrays.copyOfRange(strArray, 1, strArray.length));
+					}
+				}
+			}
+			if (summaryMsg1 == null || summaryMsg1.equals("")) {
+				summaryMsg1 = "___";
+			}
+			if (summaryMsg2 == null || summaryMsg2.equals("")) {
+				summaryMsg2 = "___";
+			}
+			latestResp = latestResp.replace("\n", ", ");
+			dateTimeUpdated = dateTimeUpdated.substring(0,dateTimeUpdated.lastIndexOf(":"));
+			String ContentVariables="{\"1\": \"" + ticketNo + "\",\"2\": \"" + respPerson + "\""
+					+ ",\"3\": \"" + priority + "\""
+					+ ",\"4\": \"" + updatedBy + "\""
+					+ ",\"5\": \"" + dateTimeUpdated + "\",\"6\": \"" + summaryMsg1 + "\",\"7\": \"" +  summaryMsg2 + "\",\"8\": \"" + latestResp + "\"" + "}";
 
-		//	Message message = Message
-		//			.creator(new com.twilio.type.PhoneNumber("whatsapp:" + To_Number),
+			//	Message message = Message
+			//			.creator(new com.twilio.type.PhoneNumber("whatsapp:" + To_Number),
 			//				new com.twilio.type.PhoneNumber("whatsapp:+27635808075"), "HXd8240621afe2fd9249c1594f3e43ef02")
 			//		
-          //          .setContentVariables(ContentVariables)
-		//			.create();
-			
-	        Message message = Message.creator(
-                    new com.twilio.type.PhoneNumber("whatsapp:" + To_Number),
-                    new com.twilio.type.PhoneNumber("whatsapp:+27635808075"),"").setContentSid("HXf0f98dd69db9ee8b48295bb7d89aa329")
-             .setContentVariables(ContentVariables)
-             .create();
+			//          .setContentVariables(ContentVariables)
+			//			.create();
+
+			Message message = Message.creator(
+					new com.twilio.type.PhoneNumber("whatsapp:" + To_Number),
+					new com.twilio.type.PhoneNumber("whatsapp:+27635808075"),"").setContentSid("HXf15d314f26c5429d6adf1b4c5f766d17")
+					.setContentVariables(ContentVariables)
+					.create();
 
 
 			System.out.println(message.getSid());
