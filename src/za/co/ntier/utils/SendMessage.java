@@ -61,8 +61,38 @@ public class SendMessage {
 
 			Message message = Message.creator(
 					new com.twilio.type.PhoneNumber("whatsapp:" + To_Number),
-					new com.twilio.type.PhoneNumber("whatsapp:+27635808075"),"").setContentSid("HXf15d314f26c5429d6adf1b4c5f766d17")
+					new com.twilio.type.PhoneNumber("whatsapp:+27635808075"),"")
+					.setContentSid("HXf15d314f26c5429d6adf1b4c5f766d17")
+					.setMessagingServiceSid("MG1baf22d07179a7e13242a15e63216545")
 					.setContentVariables(ContentVariables)
+					.create();
+
+
+			System.out.println(message.getSid());
+		}
+		return "Message Sent";
+	}
+	
+	
+	public static String sendOptInMessage(Properties ctx, int ad_Client_ID, String type, String To_Number) throws Exception {
+		String ACCOUNT_SID = MSysConfig.getValue("TWILIO_ACCOUNT_SID", ad_Client_ID);
+		String AUTH_TOKEN = MSysConfig.getValue("TWILIO_AUTH_TOKEN", ad_Client_ID);
+		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+		if (type.equals(X_TW_Message.TWILIO_MESSAGE_TYPE_SMS)) {
+			Message message = Message.creator(
+					new com.twilio.type.PhoneNumber(To_Number),
+					new com.twilio.type.PhoneNumber("+14012082693"), 
+					" ").create();
+
+			System.out.println(message.getSid());
+		} else { // Assume Whatsapp
+		
+
+			Message message = Message.creator(
+					new com.twilio.type.PhoneNumber("whatsapp:" + To_Number),
+					new com.twilio.type.PhoneNumber("whatsapp:+27635808075"),"")
+					.setContentSid("HXb725d56546a66a01f5856cd887226e40")
+					.setMessagingServiceSid("MG1baf22d07179a7e13242a15e63216545")
 					.create();
 
 
