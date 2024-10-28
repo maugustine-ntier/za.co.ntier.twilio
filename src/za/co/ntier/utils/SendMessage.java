@@ -57,6 +57,21 @@ public class SendMessage {
 					+ ",\"3\": \"" + priority + "\""
 					+ ",\"4\": \"" + updatedBy + "\""
 					+ ",\"5\": \"" + dateTimeUpdated + "\",\"6\": \"" + summaryMsg1 + "\",\"7\": \"" +  summaryMsg2 + "\",\"8\": \"" + latestResp + "\"" + "}";
+			
+			
+			String mess = "*Request Ref: {0}* /n " +
+
+                          "Responsible person: {1} /n" + 
+                          "Priority: {2} /n" +
+                          "Updated by {3} on : {4} /n" +
+                          "------------------------------------------/n" +
+                          "{5} /n" +
+                          "{6} /n" +
+                          "------------------------------------------ /n" +
+                          "Latest response: /n" +
+                          "{7}  /n /n" +
+                          "Sent by RGN ERP";
+			String myText = java.text.MessageFormat.format(mess.replaceAll("'", "''"), ticketNo,respPerson,priority,updatedBy,dateTimeUpdated,summaryMsg1,summaryMsg2,latestResp);
 
 			//	Message message = Message
 			//			.creator(new com.twilio.type.PhoneNumber("whatsapp:" + To_Number),

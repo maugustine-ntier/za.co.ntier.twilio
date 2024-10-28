@@ -40,7 +40,7 @@ public class TextToGraphics {
         String[] text_array = text.split("[\n]");
         BufferedImage img = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = img.createGraphics();
-        Font font = new Font("Consolas", Font.BOLD, 12);
+        Font font = new Font("SansSerif", Font.PLAIN, 8);
         g2d.setFont(font);
         FontMetrics fm = g2d.getFontMetrics();
         int width = fm.stringWidth(getLongestLine(text_array));
