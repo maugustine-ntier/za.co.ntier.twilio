@@ -1,6 +1,12 @@
 package za.co.ntier.utils;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.net.URI;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 import org.compiere.model.MSysConfig;
@@ -16,7 +22,7 @@ public class SendMessage {
 
 	public static String send(Properties ctx, int ad_Client_ID, String type, String To_Number, String ticketNo,String respPerson,String priority,String updatedBy,
 			String dateTimeUpdated,String summaryMsg,
-			String latestResp) throws Exception {
+			String latestResp,List<File> attachments) throws Exception {
 		String ACCOUNT_SID = MSysConfig.getValue("TWILIO_ACCOUNT_SID", ad_Client_ID);
 		String AUTH_TOKEN = MSysConfig.getValue("TWILIO_AUTH_TOKEN", ad_Client_ID);
 		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
@@ -58,15 +64,46 @@ public class SendMessage {
 			//		
 			//          .setContentVariables(ContentVariables)
 			//			.create();
+			URI fileUri = null;
+			List<URI> listImg = null;
+			if (attachments != null && !attachments.isEmpty()) {
+				File file = attachments.get(0).getAbsoluteFile();
+				File newFile = new File("/home/martin/web/" + file.getName());
+				FileInputStream inptStrm = new FileInputStream(file);
+		        FileOutputStream outStrm = new FileOutputStream(newFile);
+		        int info = 0;
+		         // reading the given file1
+		         while( (info = inptStrm.read()) != -1) {
+		            outStrm.write(info); // writing to file2
+		         }
+			     fileUri = new URI("https://cf13-41-10-17-40.ngrok-free.app/"+file.getName());
+				 listImg = new ArrayList<URI>();
+				 listImg.add(fileUri);
+			}
+			
+			URI uri = new URI("https://cf13-41-10-17-40.ngrok-free.app/" + TextToGraphics.convert(summaryMsg1, ticketNo));
+			List<URI> listImg2 = new ArrayList<URI>();
+			listImg2.add(uri);
 
 			Message message = Message.creator(
 					new com.twilio.type.PhoneNumber("whatsapp:" + To_Number),
 					new com.twilio.type.PhoneNumber("whatsapp:+27635808075"),"")
-					.setContentSid("HXf15d314f26c5429d6adf1b4c5f766d17")
+				//	.setContentSid("HXf15d314f26c5429d6adf1b4c5f766d17")
 					.setMessagingServiceSid("MG1baf22d07179a7e13242a15e63216545")
-					.setContentVariables(ContentVariables)
+				//	.setContentVariables(ContentVariables)
+					 .setMediaUrl(listImg2)
 					.create();
 
+			if (listImg != null && !listImg.isEmpty()) {
+				Message message2 = Message.creator(
+						new com.twilio.type.PhoneNumber("whatsapp:" + To_Number),
+						new com.twilio.type.PhoneNumber("whatsapp:+27635808075"),"")
+					//	.setContentSid("HXf15d314f26c5429d6adf1b4c5f766d17")
+						.setMessagingServiceSid("MG1baf22d07179a7e13242a15e63216545")
+					//	.setContentVariables(ContentVariables)
+						.setMediaUrl(listImg)
+						.create();
+			}
 
 			System.out.println(message.getSid());
 		}
