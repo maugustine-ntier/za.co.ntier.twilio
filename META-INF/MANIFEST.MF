@@ -26,7 +26,11 @@ Bundle-ClassPath: .,
  lib/slf4j-api.jar,
  lib/stax2-api.jar,
  lib/twilio.jar,
- lib/woodstox-core.jar
+ lib/woodstox-core.jar,
+ lib/guava-mini.jar,
+ lib/word-wrap.jar,
+ lib/opencv.jar,
+ lib/gson.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Service-Component: OSGI-INF/za.co.ntier.twilio.models.TwilioModelFactory.xml,
  OSGI-INF/za.co.ntier.twilio.process.TwilioProcessFactory.xml

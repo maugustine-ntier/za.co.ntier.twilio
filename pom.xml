@@ -6,11 +6,11 @@
 		<artifactId>org.idempiere.parent</artifactId>
 		<version>${revision}</version>
 		<relativePath>../idempiere/org.idempiere.parent/pom.xml</relativePath>
-	</parent>	
+	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>za.co.ntier.twilio</groupId>
 	<artifactId>za.co.ntier.twilio</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<build>
 		<plugins>
@@ -110,6 +110,26 @@
 									<artifactId>slf4j-api</artifactId>
 									<version>1.7.30</version>
 								</artifactItem>
+								<artifactItem>
+									<groupId>com.github.davidmoten</groupId>
+									<artifactId>word-wrap</artifactId>
+									<version>0.1.13</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>com.github.davidmoten</groupId>
+									<artifactId>guava-mini</artifactId>
+									<version>0.1.7</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>com.google.code.gson</groupId>
+									<artifactId>gson</artifactId>
+									<version>2.9.1</version>
+								</artifactItem>		
+								<artifactItem>
+									<groupId>org.openpnp</groupId>
+									<artifactId>opencv</artifactId>
+									<version>3.2.0-0</version>
+								</artifactItem>								
 							</artifactItems>
 							<outputDirectory>lib</outputDirectory>
 							<stripVersion>true</stripVersion>
