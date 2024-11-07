@@ -45,6 +45,8 @@ class Message {
 	String flags;
 	boolean forced;
 	String message;
+	String url;
+	String title;
 	
 	public String getFrom() {
 		return from;
@@ -108,6 +110,22 @@ class Message {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public Message() {
