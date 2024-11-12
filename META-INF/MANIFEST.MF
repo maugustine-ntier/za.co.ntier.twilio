@@ -31,7 +31,8 @@ Bundle-ClassPath: .,
  lib/guava-mini.jar,
  lib/word-wrap.jar,
  lib/opencv.jar,
- lib/gson.jar
+ lib/gson.jar,
+ lib/javacpp.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Service-Component: OSGI-INF/za.co.ntier.twilio.models.TwilioModelFactory.xml,
  OSGI-INF/za.co.ntier.twilio.process.TwilioProcessFactory.xml

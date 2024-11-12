@@ -39,11 +39,6 @@ public class MessageHeader {
 class Message {
 	String from;
 	String to;
-	int gid;
-	int type;
-	int expiry;
-	String flags;
-	boolean forced;
 	String message;
 	String url;
 	String title;
@@ -64,45 +59,6 @@ class Message {
 		this.to = to;
 	}
 
-	public int getGid() {
-		return gid;
-	}
-
-	public void setGid(int gid) {
-		this.gid = gid;
-	}
-
-	public int getType() {
-		return type;
-	}
-
-	public void setType(int type) {
-		this.type = type;
-	}
-
-	public int getExpiry() {
-		return expiry;
-	}
-
-	public void setExpiry(int expiry) {
-		this.expiry = expiry;
-	}
-
-	public String getFlags() {
-		return flags;
-	}
-
-	public void setFlags(String flags) {
-		this.flags = flags;
-	}
-
-	public boolean isForced() {
-		return forced;
-	}
-
-	public void setForced(boolean forced) {
-		this.forced = forced;
-	}
 
 	public String getMessage() {
 		return message;
