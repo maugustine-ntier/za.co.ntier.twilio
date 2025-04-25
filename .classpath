@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="lib" path="lib/javacpp.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/gson.jar"/>
-	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-codec.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-io.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-logging.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/gson.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/guava-mini.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/httpclient.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/httpcore.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jackson-annotations.jar"/>
@@ -15,15 +12,32 @@
 	<classpathentry exported="true" kind="lib" path="lib/jackson-databind.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jackson-dataformat-xml.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jackson-datatype-jsr310.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/javacpp.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jjwt-api.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jjwt-impl.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jjwt-jackson.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/opencv.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/slf4j-api.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/stax2-api.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/twilio.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/woodstox-core.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/guava-mini.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/word-wrap.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/opencv.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
