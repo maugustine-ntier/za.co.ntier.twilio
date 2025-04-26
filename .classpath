@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry exported="true" kind="lib" path="lib/commons-codec.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/commons-io.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/commons-logging.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/gson.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/guava-mini.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/httpclient.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/httpcore.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jackson-annotations.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jackson-core.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jackson-databind.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jackson-dataformat-xml.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jackson-datatype-jsr310.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/javacpp.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jjwt-api.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jjwt-impl.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jjwt-jackson.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/opencv.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/slf4j-api.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/stax2-api.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/twilio.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/woodstox-core.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/word-wrap.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/commons-codec.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/commons-io.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/commons-logging.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/gson.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/guava-mini.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/httpclient.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/httpcore.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/jackson-annotations.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/jackson-core.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/jackson-databind.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/jackson-dataformat-xml.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/jackson-datatype-jsr310.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/javacpp.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/jjwt-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/jjwt-impl.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/jjwt-jackson.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/opencv.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/slf4j-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/stax2-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/twilio.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/woodstox-core.jar"/>
+	<classpathentry exported="true" kind="lib" path="libx/word-wrap.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
